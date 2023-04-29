@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="website_material_list" name="Daftar Material Website">
+        <!-- panggil view website.layout agar navbar dll tampil -->
+        <t t-call="website.layout">
+            <!-- tambah judul halaman -->
+            <t t-set="additional_title" t-value="'Daftar Material'" />
+            <div id="wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="sale-title">Daftar Material</h2>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Buy Price</th>
+                                    <th>Supplier</th>
+                                    <!-- <th>Action</th> -->
+                                </tr>
+                                <t t-foreach="orders" t-as="order">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="order.code" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="order.name" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="order.type" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="order.buy_price" />
+                                        </td>
+                                        <td>
+                                            <t t-esc="order.supplier.name" />
+                                        </td>
+                                        <!-- <td>
+                                            <button class="btn btn-sm btn-danger btn-delete-sale" t-att-data-sale-number="order.name">Delete</button>
+                                        </td> -->
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>
